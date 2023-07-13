@@ -11,7 +11,7 @@
         <h1>Todo List</h1>
         <ul>
             {% if g.user %}
-                <li> <span>{{ g.user['username'] }}</span> </li>
+                <li> <span>{{ g.user['userName'] }}</span> </li>
                 <li> <a href="{{ url_for('auth.logout') }}" >Logout</a></li>
             {% else %}
                 <li> <a href="{{ url_for('auth.register') }}">Register</a> 

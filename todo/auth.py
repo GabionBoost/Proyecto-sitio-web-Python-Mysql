@@ -58,7 +58,7 @@ def login():
         if error == None:
             session.clear()
             session["userID"] = user["userID"]
-            return redirect(url_for("index"))
+            return redirect(url_for("todo.index"))
         flash(error)
     
     return render_template("auth/login.html")
@@ -83,3 +83,8 @@ def login_requerid(view):
         return view(**kwargs)
     
     return wrapped_view
+
+@bp.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for('auth.login'))
